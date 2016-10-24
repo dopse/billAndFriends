@@ -16,14 +16,14 @@ import java.util.List;
  */
 public class ResumeUtil {
 
-    public static Resume getResumeByListMember(List<Member> creditMemberList) {
+    public static Resume getResumeByListMember(final List<Member> creditMemberList) {
         Resume resume = new Resume();
 
-        List<Member> loanMemberList = new ArrayList<>();
+        final List<Member> loanMemberList = new ArrayList<>();
 
         Float total = 0F;
 
-        for (Member member : creditMemberList) {
+        for (final Member member : creditMemberList) {
             total += member.getPaid();
         }
 
@@ -31,7 +31,7 @@ public class ResumeUtil {
 
         createMemberListDebit(total, creditMemberList, loanMemberList);
 
-        List<Action> actionList = new ArrayList<>();
+        final List<Action> actionList = new ArrayList<>();
 
         for (final Member member : creditMemberList) {
             actionList.addAll(debitMember(member, loanMemberList));
@@ -42,7 +42,7 @@ public class ResumeUtil {
         return resume;
     }
 
-    private static void createMemberListDebit(final Float total, List<Member> creditMemberList, final List<Member> loanMemberList) {
+    private static void createMemberListDebit(final Float total, final List<Member> creditMemberList, final List<Member> loanMemberList) {
         CollectionUtils.filter(creditMemberList, new Predicate<Member>() {
             public boolean evaluate(Member member) {
                 if(member.getPaid() < total) {
