@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 /**
  * Created by dopse on 22/10/2016.
  */
-public class LesBonsComptesTest {
+public class BillAndFriendsTest {
 
     private List<Member> creditMemberList = new ArrayList<>();
 
