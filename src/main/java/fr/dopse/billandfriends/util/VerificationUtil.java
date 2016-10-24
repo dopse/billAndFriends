@@ -9,9 +9,9 @@ import org.springframework.util.StringUtils;
  */
 public class VerificationUtil {
 
-    public static void mandatoryValue(Object... strings) throws BillAndFriendsException {
-        for (Object string : strings) {
-            if (StringUtils.isEmpty(string)) {
+    public static void mandatoryValue(Object... values) throws BillAndFriendsException {
+        for (Object value : values) {
+            if (StringUtils.isEmpty(value)) {
                 throw new BillAndFriendsException("Value is mandatory");
             }
         }
